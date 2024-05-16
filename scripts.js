@@ -125,14 +125,39 @@ const updateShowMoreButton = () => {
 // updating show more button initially
   updateShowMoreButton();
 
-document.querySelector('[data-list-button]').innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
-document.querySelector('[data-list-button]').disabled = (matches.length - (page * BOOKS_PER_PAGE)) > 0
+//   Function to close overlay
+  const closeOverlay = (selector) => {
+    getElement(selector).open = false;
+  };
+
+//   Function to open overlay
+const openOverlay = (selector, focusSelector = null) => {
+  getElement(selector).open = true;
+  if (focusSelector) getElement(focusSelector).focus();
+};
+
+// Function to apply search filters to book data
+const applySearchFilters = (filters) => {
+    return books.filter((book) => {
+      const titleMatch =
+        filters.title.trim() === "" ||
+        book.title.toLowerCase().includes(filters.title.toLowerCase());
+      const authorMatch =
+        filters.author === "any" || book.author === filters.author;
+      const genreMatch =
+        filters.genre === "any" || book.genres.includes(filters.genre);
+      return titleMatch && authorMatch && genreMatch;
+    });
+  };
+
+// document.querySelector('[data-list-button]').innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
+// document.querySelector('[data-list-button]').disabled = (matches.length - (page * BOOKS_PER_PAGE)) > 0
 
 
 
-document.querySelector('[data-list-button]').innerHTML = `
-    <span>Show more</span>
-    <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
+// document.querySelector('[data-list-button]').innerHTML = `
+//     <span>Show more</span>
+//     <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
 `
 
 document.querySelector('[data-search-cancel]').addEventListener('click', () => {
