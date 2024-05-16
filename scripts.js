@@ -158,7 +158,42 @@ const applySearchFilters = (filters) => {
 // document.querySelector('[data-list-button]').innerHTML = `
 //     <span>Show more</span>
 //     <span class="list__remaining"> (${(matches.length - (page * BOOKS_PER_PAGE)) > 0 ? (matches.length - (page * BOOKS_PER_PAGE)) : 0})</span>
-`
+// `
+
+
+// Close search overlay
+getElement("[data-search-cancel]").addEventListener("click", () =>
+  closeOverlay("[data-search-overlay]")
+);
+
+// Close settings overlay
+getElement("[data-settings-cancel]").addEventListener("click", () =>
+  closeOverlay("[data-settings-overlay]")
+);
+
+// Open search overlay
+getElement("[data-header-search]").addEventListener("click", () =>
+  openOverlay("[data-search-overlay]", "[data-search-title]")
+);
+
+// Open settings overlay
+getElement("[data-header-settings]").addEventListener("click", () =>
+  openOverlay("[data-settings-overlay]")
+);
+
+// Close active book overlay
+getElement("[data-list-close]").addEventListener("click", () =>
+  closeOverlay("[data-list-active]")
+);
+
+getElement("[data-settings-form]").addEventListener("submit", (event) => {
+  event.preventDefault();
+  const formData = new FormData(event.target);
+  const { theme } = Object.fromEntries(formData);
+  applyTheme(theme);
+  closeOverlay("[data-settings-overlay]");
+});
+
 
 document.querySelector('[data-search-cancel]').addEventListener('click', () => {
     document.querySelector('[data-search-overlay]').open = false
