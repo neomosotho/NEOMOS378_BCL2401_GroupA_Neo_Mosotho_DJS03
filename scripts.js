@@ -215,6 +215,17 @@ getElement("[data-search-form]").addEventListener("submit", (event) => {
     closeOverlay("[data-search-overlay]");
   });
 
+  // Click event listener for "show more" button
+getElement("[data-list-button]").addEventListener("click", () => {
+    page++;
+    const start = (page - 1) * BOOKS_PER_PAGE;
+    const end = start + BOOKS_PER_PAGE;
+    createBookPreviews(
+      matches.slice(start, end),
+      getElement("[data-list-items]")
+    );
+    updateShowMoreButton();
+  });
   
     page = 1;
     matches = result
