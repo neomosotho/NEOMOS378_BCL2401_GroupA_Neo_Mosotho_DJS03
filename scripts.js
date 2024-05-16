@@ -110,9 +110,25 @@ applyTheme(
 //     document.documentElement.style.setProperty('--color-light', '255, 255, 255');
 // }
 
+// Function to update Show More button
+const updateShowMoreButton = () => {
+    const remainingBooks = matches.length - page * BOOKS_PER_PAGE;
+    const button = getElement("[data-list-button]");
+    button.innerHTML = `
+        <span>Show more</span>
+        <span class="list__remaining">(${
+          remainingBooks > 0 ? remainingBooks : 0
+        })</span>
+      `;
+    button.disabled = remainingBooks <= 0;
+  };
+// updating show more button initially
+  updateShowMoreButton();
 
 document.querySelector('[data-list-button]').innerText = `Show more (${books.length - BOOKS_PER_PAGE})`
 document.querySelector('[data-list-button]').disabled = (matches.length - (page * BOOKS_PER_PAGE)) > 0
+
+
 
 document.querySelector('[data-list-button]').innerHTML = `
     <span>Show more</span>
