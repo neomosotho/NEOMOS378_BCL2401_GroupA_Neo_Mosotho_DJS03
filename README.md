@@ -4,36 +4,35 @@ Dive into the delightful world of "Book Connect," where literary adventures awai
 
 The "Book Connect" project provides an opportunity for students to refine a fully functional version of an application. The focus of this project is to enhance the code's maintainability, extendibility, and readability by applying concepts of objects and functions for abstraction. This will not only streamline future modifications but also consolidate students' understanding of higher-level programming concepts, including documentation, Styleguides, and abstraction principles.
 
-![alt text](image.png)
+## Features
+Book Previews: Display a list of books with previews that include the book's image, title, and author.
 
-#### Goals
+Filter Options: Users can filter books by genre, author, and title.
 
-- **Refactor Existing Code**: Analyse and refactor the given JavaScript and HTML code to improve its structure using objects and functions.
-- **Implement Abstraction**: Use abstraction to hide the complex reality while exposing only the necessary parts. This involves creating more generic functions that can perform tasks in a more flexible way.
-- **Documentation**: Write clear comments and documentation for the new code structure to explain the purpose and functionality of code blocks, functions, and objects.
-- **Follow Styleguides**: Adhere to established coding conventions and Styleguides to ensure code readability and maintainability.
+Theme Switching: Toggle between day and night themes based on user preference.
 
-#### Tasks
+Detailed Book Reviews: View detailed information about a selected book in an overlay.
 
-1. **Code Analysis**: Start by understanding the current implementation of the "Book Connect" application, including its HTML structure and JavaScript functionality.
-2. **Plan Refactoring**: Identify sections of the code that can be made more abstract and modular. Look for patterns and repetitive code that can be simplified.
-3. **Implement Abstraction**:
-   - **Objects**: Define objects to represent key elements of the application, such as books, authors, and genres. Utilise the provided data (e.g., `authors`, `genres`, `books`) to populate these objects.
-   - **Functions**: Create functions that handle repetitive tasks, such as rendering the book list, handling user interactions, and applying filters.
-4. **Enhance Functionality**: Ensure that the application remains fully functional after refactoring. Test all features to confirm that users can still search, filter, and view books as intended.
-5. **Documentation and Comments**: Throughout the refactoring process, document your code. Provide comments that explain the purpose and functionality of objects and functions.
-6. **Adherence to Styleguides**: Ensure your code follows JavaScript and HTML coding standards and best practices for readability and maintainability.
+## Project Structure
+The project structure includes several key components and scripts:
 
-#### Discussion and Reflection
+data.js: Contains the data and constants for books, authors, genres, and the number of books per page.
+main.js: Main JavaScript file that initializes the application and manages the core functionality.
 
-After completing the tasks, prepare a brief presentation for your coaching group on the following:
-- The rationale behind the refactoring decisions made, including the choice of objects and functions.
-- How abstraction has made the code more maintainable and extendable.
-- Any challenges faced during the refactoring process and how they were overcome.
-- Reflections on how this exercise has deepened your understanding of JavaScript programming concepts.
+## Abstraction for maintainability
+## Modular Functions:
 
-#### Submission Guidelines
+Functions like createBookPreviews and createOptions were designed to perform specific tasks, making them easy to understand and test.
+This abstraction allows these functions to be reused across different parts of the application or even in different projects, enhancing code reusability and reducing duplication.
 
-Submit the refactored version of the "Book Connect" application, including all HTML, CSS, and JavaScript files. Ensure that your code is well-documented and adheres to the specified Styleguides. Include a written report covering the discussion and reflection points outlined above.
+## Shadow DOM for Scoped Styles:
 
-Make sure to submit your project to the LMS on the DJS03 Project Tab.
+Using Shadow DOM in Web Components (this.attachShadow({ mode: 'open' })) scopes styles to the component, preventing styles from leaking out or being affected by global styles.
+This ensures consistent styling and reduces the complexity of managing CSS in large projects.
+
+## Challenges:
+Maintaining Performance: Ensuring that the application remains performant after adding the abstraction layers.
+Understanding and implementing abstractions.
+
+## Feedback:
+This project was very challenging. I managed to complete it based on the requirements.
